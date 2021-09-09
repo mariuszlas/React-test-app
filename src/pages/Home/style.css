@@ -1,3 +1,11 @@
 body {
     font-family: sans-serif;
 }
+
+main {
+    margin: 2em;
+}
+.card {
+    padding: 1em;
+    font-family: monospace;
+}

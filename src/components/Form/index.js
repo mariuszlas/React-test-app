@@ -5,7 +5,7 @@ function Form({ handleFormSubmit }) {
     return(
         <>
         <form onSubmit={e => handleFormSubmit(e)}>
-            <label htmlFor="username">Enter your username: </label>
+            <label htmlFor="username">Enter your GitHub username: </label>
             <input type="text" name="username" />
             <input type="submit" value="Submit"/>
         </form>

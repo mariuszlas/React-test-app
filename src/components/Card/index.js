@@ -8,12 +8,12 @@ function Card({ username }) {
     useEffect(() => {
         async function getData() {
             setStatus('Loading...');
+
             try {
-                // const res = await fetch(`https://api.github.com/users/${username}/repos`)
-                // const repos = await res.json();
-                let repos = [{name: 'first'}, {name: 'second'}]
-                console.log(repos);
+                const res = await fetch(`https://api.github.com/users/${username}/repos`)
+                const repos = await res.json();
                 setData(repos);
+                // if an error is retunred (obj), set status as error message
                 repos instanceof Array ? setStatus('') : setStatus(repos.message)
             } catch (err) {
                 setStatus('Could not fetch the data, check your username');
@@ -22,16 +22,19 @@ function Card({ username }) {
         getData();
     }, [username])
 
-    if (status === '') {
+    const renderCards = () => data.map(repo => (
+            <div class="card">{repo.name}</div>
+        ))
+
+    if (status === '') {  // no errors
         return(
-            <p>Status is an empty string</p>
+            <main>
+                <p>Here is the list of your public repos:</p>
+                <div id="all-cards">{ renderCards() }</div>
+            </main>
         )
     } else {
-        return(
-            <>
-            <p>Username in Card: {username}</p>
-            </>
-        )
+        return(<p>{status}</p>)
     }
 }
 

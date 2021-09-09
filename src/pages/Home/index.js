@@ -5,7 +5,6 @@ import './style.css';
 function Home() {
 
     const [username, setUsername] = useState('');
-    const [colorSwitch, setColorSwitch] = useState(false);
 
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -14,7 +13,6 @@ function Home() {
 
     return(
         <>
-            <Background />
             <Greeting />
             <p>This is a Home page</p>
             <Form handleFormSubmit={handleFormSubmit} />
