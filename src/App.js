@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Footer, Header } from './layout';
-import { Home, About, Contact } from './pages';
+import { Home, About, Contact, Edit } from './pages';
 import './index.css';
 
 function App() {
@@ -11,7 +11,8 @@ function App() {
             <Switch>
                 <Route exact path="/"><Home /></Route>
                 <Route path="/contact"><Contact /></Route>
-                <Route path="/about"><About /></Route>
+                <Route exact path="/about"><About /></Route>
+                <Route path="/about/:username"><Edit /></Route>
             </Switch>
             <Footer />
         </>

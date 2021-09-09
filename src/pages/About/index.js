@@ -1,9 +1,26 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 function About() {
 
+    const users = useSelector(state => state)
+
+    const renderUsers = () => users.map(user => (
+        <>
+            <Link to={`/about/${user.username}`}>{user.username}</Link>
+            <span>X</span>
+        </>
+        ))
+
     return (
-        <p>This an about page</p>
+        <>
+        <section id="users">
+            { renderUsers() }
+        </section>
+
+        </>
     )
 }
 
